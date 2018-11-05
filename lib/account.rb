@@ -1,34 +1,32 @@
-require_relative 'account_history.rb'
+require_relative 'printer.rb'
 require 'date'
 
+# Class calculates the balance and handles the withdraw and deposit requests
 class Account
-  attr_reader :balance, :account_history
+  attr_reader :balance, :history
 
-  def initialize(balance = 0, account_history = [])
+  def initialize(_balance = 0, history = [])
     @balance = 0
-    @account_history = account_history
+    @history = history
   end
 
-  def deposit(amount=0)
+  def deposit(amount = 0)
     @depost_amount = amount
     @balance += amount
     history_maker
   end
 
-  def withdraw(amount=0)
+  def withdraw(amount = 0)
     @withdraw_amount = amount
     @balance -= amount
     history_maker
   end
 
   def transaction_statement
-    return [Time.now.strftime("%d-%m-%Y"), @withdraw_amount, @depost_amount, @balance]
+    [Time.now.strftime('%d-%m-%Y'), @withdraw_amount, @depost_amount, @balance]
   end
 
   def history_maker
-    @account_history.push(transaction_statement)
+    @history.push(transaction_statement)
   end
-
-
-
 end
