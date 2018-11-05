@@ -28,5 +28,15 @@ RSpec.describe Account do
       )
     end
 
+    it('should have a record of previous transactions') do
+      new_acc = Account.new
+      new_acc.deposit(50)
+      new_acc.deposit(40)
+      expect(new_acc.account_history).to eq([
+        [Time.now.strftime("%d-%m-%Y"), nil, 50, 50],
+        [Time.now.strftime("%d-%m-%Y"), nil, 40, 90]
+      ])
+    end
+
   end
 end
