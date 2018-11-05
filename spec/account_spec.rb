@@ -24,7 +24,7 @@ RSpec.describe Account do
       new_acc = Account.new
       new_acc.deposit(50)
       expect(new_acc.transaction_statement).to eq(
-        [Time.now.strftime('%d-%m-%Y'), nil, 50, 50]
+        [Time.now.strftime('%d-%m-%Y'), nil, "50.00", "50.00"]
       )
     end
   end
@@ -34,8 +34,8 @@ RSpec.describe Account do
       acc.deposit(50)
       acc.deposit(40)
       expect(acc.history).to eq([
-        [Time.now.strftime('%d-%m-%Y'), nil, 50, 50],
-        [Time.now.strftime('%d-%m-%Y'), nil, 40, 90]
+        [Time.now.strftime('%d-%m-%Y'), nil, "50.00", "50.00"],
+        [Time.now.strftime('%d-%m-%Y'), nil, "40.00", "90.00"]
                                 ])
     end
   end
