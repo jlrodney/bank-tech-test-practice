@@ -1,11 +1,13 @@
+require_relative 'account'
 class User
 
-  attr_reader :name, :balance 
+  attr_reader :name, :account
 
 
-  def initialize(name, balance = 0)
+  def initialize(name, account = Account.new)
     @name = name
-    @balance = balance
-  end
+    @account = account
+  end 
+
 
 end
