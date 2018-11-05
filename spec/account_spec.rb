@@ -8,7 +8,7 @@ RSpec.describe Account do
     end
   end
   describe('Balance methods') do
-    it('should be able to update balance after a withdrawel') do
+    it('should be able to update balance after a withdrawal') do
       new_acc = Account.new
       new_acc.withdraw(50)
       expect(new_acc.balance).to eq(-50)

@@ -5,9 +5,10 @@ require 'date'
 class Account
   attr_reader :balance, :history
 
-  def initialize(balance = 0.00, history = [])
+  def initialize(balance = 0.00, history = [], printer = Printer.new)
     @balance = balance
     @history = history
+    @printer = printer
   end
 
   def deposit(amount = 0)
@@ -35,5 +36,9 @@ class Account
 
   def history_maker
     @history.push(transaction_statement)
+  end
+
+  def statement
+    @printer.string_converter(@history)
   end
 end
