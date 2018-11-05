@@ -1,5 +1,5 @@
 
-class Account_history
+class AccountHistory
 
   attr_reader :history
 
