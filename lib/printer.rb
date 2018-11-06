@@ -6,7 +6,6 @@ class Printer
 
   HEADER = 'date || credit || debit || balance'.freeze
 
-
   def string_converter(array)
     (0...array.length).each do |i|
       @balance_statement += "\n" + stringify(array[i])
@@ -15,6 +14,7 @@ class Printer
   end
 
   private
+
   def stringify(array)
     array[0] = array[0].strftime('%d/%m/%Y')
     @statement = ''
