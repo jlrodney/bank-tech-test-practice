@@ -48,6 +48,12 @@ Account
 Printer
 - Converts the history of transactions into a balance statement form
 
+Further Work (to be discussed with client)
+- Transaction limit
+- Daily transaction limit
+- Should negative balance be allowed
+- Should the user input the date
+
 User stories
 -------------
 

@@ -1,7 +1,6 @@
 require 'account'
 
 RSpec.describe Account do
-
   let(:mockPrinter) { double :printer, string_converter: nil }
 
   describe('Initialize') do
@@ -27,7 +26,7 @@ RSpec.describe Account do
       new_acc = Account.new
       new_acc.deposit(50)
       expect(new_acc.transaction_statement).to eq(
-        [Time.now.strftime('%d-%m-%Y'), "50.00", nil, "50.00"]
+        [Time.now.strftime('%d-%m-%Y'), '50.00', nil, '50.00']
       )
     end
   end
@@ -36,10 +35,11 @@ RSpec.describe Account do
       acc = Account.new
       acc.deposit(50)
       acc.deposit(40)
-      expect(acc.history).to eq([
-        [Time.now.strftime('%d-%m-%Y'), "50.00", nil, "50.00"],
-        [Time.now.strftime('%d-%m-%Y'), "40.00", nil, "90.00"]
-                                ])
+      expect(acc.history)
+        .to eq([
+                 [Time.now.strftime('%d-%m-%Y'), '40.00', nil, '90.00'],
+                 [Time.now.strftime('%d-%m-%Y'), '50.00', nil, '50.00']
+               ])
     end
   end
   describe('statement') do
@@ -50,9 +50,9 @@ RSpec.describe Account do
       acc.deposit(40)
       acc.deposit(50)
       acc.statement
-      data = [["01-11-2018", "50.00", nil, "50.00"],
-              ["01-11-2018", "40.00", nil, "90.00"],
-              ["01-11-2018", "50.00", nil, "140.00"]]
+      data = [['01-11-2018', '50.00', nil, '140.00'],
+              ['01-11-2018', '40.00', nil, '90.00'],
+              ['01-11-2018', '50.00', nil, '50.00']]
       expect(mockPrinter).to have_received(:string_converter).with(data)
     end
   end
