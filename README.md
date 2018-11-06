@@ -2,13 +2,13 @@
 
 A ruby implementation of a simple banking app allowing withdrawals, deposits and the printing of bank statements.
 
-Motivation
+## Motivation
 This software was created as a learning exercise to get feedback and improve on tech tests.
 
-Technologies
+## Technologies
 This app was written in Ruby and makes use of Rubocop and SimpleCov to ensure code  quality.
 
-Usage
+## Usage
 
 To use this app clone this repo.
 ```
@@ -20,12 +20,12 @@ $ irb
   > require './lib/account'
 ```
 
-Create a new Account
+### Create a new Account
 ```
 > new_acc = Account.new
 ```
 
-Deposit/withdraw money
+### Deposit/withdraw money
 ```
 > new_acc.deposit(40)
 > new_acc.withdraw(30)
@@ -39,16 +39,16 @@ Deposit/withdraw money
 
 I have created two classes for this exercise to try and simulate a transaction account.
 
-Account
+### Account
 - Has method of deposit
 - Method of withdraw
 - Creates a transaction statement
 - Stores the history of transactions
 
-Printer
+### Printer
 - Converts the history of transactions into a balance statement form
 
-Further Work (to be discussed with client)
+## Further Work (to be discussed with client)
 - Transaction limit
 - Daily transaction limit
 - Should negative balance be allowed
