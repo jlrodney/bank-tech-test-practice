@@ -12,26 +12,27 @@ class Account
   end
 
   def deposit(amount = 0)
+    @withdraw_amount = nil
     @balance += amount
     if amount != 0
       amount = format('%0.2f', amount)
     end
-    @depost_amount = amount
+    @deposit_amount = amount
     history_maker
   end
 
   def withdraw(amount = 0)
+    @deposit_amount = nil
     @balance -= amount
     if amount != 0
       amount = format('%0.2f', amount)
     end
     @withdraw_amount = amount
-
     history_maker
   end
 
   def transaction_statement
-    [Time.now.strftime('%d-%m-%Y'), @withdraw_amount, @depost_amount, format('%0.2f', @balance)]
+    [Time.now.strftime('%d-%m-%Y'), @deposit_amount, @withdraw_amount, format('%0.2f', @balance)]
   end
 
   def history_maker
@@ -39,6 +40,7 @@ class Account
   end
 
   def statement
-    @printer.string_converter(@history)
+    stat = @printer.string_converter(@history)
+    puts stat
   end
 end

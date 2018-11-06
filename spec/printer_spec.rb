@@ -20,7 +20,7 @@ RSpec.describe Printer do
       acc_hist = Printer.new
       acc_hist.string_converter(test_output)
       expect(acc_hist.balance_statement).to eq(
-        "date || credit || debit || balance\n05-11-2018 ||  || 50.00 || 50.00 \n05-11-2018 ||  || 40.00 || 90.00 \n05-11-2018 ||  || 50.00 || 140.00 "
+        "date || credit || debit || balance\n06-11-2018 ||  || 50.00 || 50.00 \n06-11-2018 ||  || 40.00 || 90.00 \n06-11-2018 ||  || 50.00 || 140.00 "
       )
     end
 
