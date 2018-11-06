@@ -14,6 +14,10 @@ To use this app clone this repo.
 ```
 git clone git@github.com:jlrodney/bank-tech-test-practice.git
 ```
+To run the tests, run RSpec
+```
+$ rspec
+```
 To begin the app open IRB
 ```
 $ irb

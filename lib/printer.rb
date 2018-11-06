@@ -1,12 +1,11 @@
 # Class converts the account history into a nice balance statement
 class Printer
-  attr_reader :balance_statement
-
-  def initialize(statement = HEADER)
-    @balance_statement = statement
+  def initialize(head = HEADER)
+    @balance_statement = head
   end
 
   HEADER = 'date || credit || debit || balance'.freeze
+
 
   def string_converter(array)
     (0...array.length).each do |i|
@@ -15,6 +14,7 @@ class Printer
     @balance_statement
   end
 
+  private
   def stringify(array)
     array[0] = array[0].strftime('%d/%m/%Y')
     @statement = ''
@@ -23,5 +23,4 @@ class Printer
     end
     @statement = @statement[0...-3]
   end
-
 end

@@ -9,17 +9,9 @@ RSpec.describe Printer do
   ]
 
   describe('Printer') do
-    it('should be initialized with a balance statement') do
+    it('should convert the account history and convert it into a statement') do
       acc_hist = Printer.new
-      expect(acc_hist.balance_statement).to eq(
-        'date || credit || debit || balance'
-      )
-    end
-
-    it('string_converter') do
-      acc_hist = Printer.new
-      acc_hist.string_converter(test_output)
-      expect(acc_hist.balance_statement).to eq(
+      expect(acc_hist.string_converter(test_output)).to eq(
         "date || credit || debit || balance\n"\
         "06/11/2018 ||  || 50.00 || 50.00 \n"\
         "06/11/2018 ||  || 40.00 || 90.00 \n"\
