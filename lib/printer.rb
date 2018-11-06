@@ -1,4 +1,3 @@
-require_relative 'account'
 # Class converts the account history into a nice balance statement
 class Printer
   attr_reader :balance_statement
@@ -17,10 +16,12 @@ class Printer
   end
 
   def stringify(array)
+    array[0] = array[0].strftime('%d/%m/%Y')
     @statement = ''
     (0..3).each do |i|
       @statement += array[i].to_s + ' || '
     end
     @statement = @statement[0...-3]
   end
+
 end

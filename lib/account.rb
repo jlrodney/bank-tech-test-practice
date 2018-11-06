@@ -27,8 +27,15 @@ class Account
     history_maker
   end
 
+  def statement
+    # @history.reverse
+    puts @printer.string_converter(@history)
+  end
+
+  private
+
   def transaction_statement
-    [Time.now.strftime('%d-%m-%Y'), @deposit_amount, @withdraw_amount,
+    [Time.now, @deposit_amount, @withdraw_amount,
      format('%0.2f', @balance)]
   end
 
@@ -36,9 +43,4 @@ class Account
     @history = [transaction_statement] + @history
   end
 
-  def statement
-    # @history.reverse
-    stat = @printer.string_converter(@history)
-    puts stat
-  end
 end
