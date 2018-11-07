@@ -3,7 +3,6 @@ require 'date'
 
 # Class calculates the balance and handles the withdraw and deposit requests
 class Account
-  attr_reader :history
   def initialize(balance = 0.00, history = [], printer = Printer.new)
     @balance = balance
     @history = history
