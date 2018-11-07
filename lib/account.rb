@@ -3,6 +3,7 @@ require 'date'
 
 # Class calculates the balance and handles the withdraw and deposit requests
 class Account
+  attr_reader :history
   def initialize(balance = 0.00, history = [], printer = Printer.new)
     @balance = balance
     @history = history
@@ -11,13 +12,11 @@ class Account
 
   def deposit(amount = 0)
     @balance += amount
-    amount = format('%0.2f', amount) if amount != 0
     history_maker(amount, nil)
   end
 
   def withdraw(amount = 0)
     @balance -= amount
-    amount = format('%0.2f', amount) if amount != 0
     history_maker(nil, amount)
   end
 
@@ -28,8 +27,7 @@ class Account
   private
 
   def transaction_statement(credit, debit)
-    [Time.now, credit, debit,
-     format('%0.2f', @balance)]
+    [Time.now, credit, debit, @balance]
   end
 
   def history_maker(credit, debit)

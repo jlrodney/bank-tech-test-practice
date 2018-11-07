@@ -17,10 +17,13 @@ class Printer
 
   def stringify(array)
     array[0] = array[0].strftime('%d/%m/%Y')
-    @statement = ''
-    (0..3).each do |i|
-      @statement += array[i].to_s + ' || '
-    end
-    @statement = @statement[0...-3]
+    array[1] = format('%0.2f', array[1]) unless array[1].nil?
+    array[2] = format('%0.2f', array[2]) unless array[2].nil?
+    array[3] = format('%0.2f', array[3])
+    formatter(array)
+  end
+
+  def formatter(array)
+    "#{array[0]} || #{array[1]} || #{array[2]} || #{array[3]} "
   end
 end

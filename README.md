@@ -46,10 +46,10 @@ I have created two classes for this exercise to try and simulate a transaction a
 ### Account
 - Has method of deposit
 - Method of withdraw
-- Creates a transaction statement
 - Stores the history of transactions
 
 ### Printer
+- Converts the account history into strings (deposit amount, withdraw amount, balance and date)
 - Converts the history of transactions into a balance statement form
 
 ## Further Work (to be discussed with client)

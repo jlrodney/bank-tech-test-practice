@@ -13,9 +13,9 @@ RSpec.describe Printer do
       acc_hist = Printer.new
       expect(acc_hist.string_converter(test_output)).to eq(
         "date || credit || debit || balance\n"\
-        "06/11/2018 ||  || 50.00 || 50.00 \n"\
-        "06/11/2018 ||  || 40.00 || 90.00 \n"\
-        '06/11/2018 ||  || 50.00 || 140.00 '
+        "#{Time.now.strftime('%d/%m/%Y')} ||  || 50.00 || 50.00 \n"\
+        "#{Time.now.strftime('%d/%m/%Y')} ||  || 40.00 || 90.00 \n"\
+        "#{Time.now.strftime('%d/%m/%Y')} ||  || 50.00 || 140.00 "
       )
     end
   end
